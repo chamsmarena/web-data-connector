@@ -69,7 +69,7 @@
     myConnector.getData = function(table, doneCallback) {
 
 
-        $.getJSON("https://api.hpc.tools/v1/public/fts/flow?planid=653,652,637,640,661,654,638,643,642,644,548,537,587,532,547,535,626,530,546,536,528", function(resp) {
+        $.getJSON("https://api.hpc.tools/v1/public/fts/flow?planid=642", function(resp) {
             var feat = resp.data.flows,tableData = [];
             
     
