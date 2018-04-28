@@ -68,179 +68,175 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
 
-        var plans = [653,652];
-        for (var r = 0, len4 = plans.length; r < len4; r++) {
-            $.getJSON("https://api.hpc.tools/v1/public/fts/flow?planid="+plans[r], function(resp) {
-                var feat = resp.data.flows,tableData = [];
-                
-        
-                
-                
-                // Iterate over the JSON object
-                for (var i = 0, len = feat.length; i < len; i++) {
-                    var planId="";
-                    var planName = "";
-                    var planBehavior = "";
-                    var destOrganisationId = "";
-                    var destOrganisationName = "";
-                    var destOrganisationBehavior = "";
-                    var destOrganisationType = "";
-                    var destClusterId = "";
-                    var destClusterName = "";
-                    var destClusterBehavior = "";
-                    var destGlobalClusterId = "";
-                    var destGlobalClusterName = "";
-                    var destGlobalClusterBehavior = "";
-                    var destLocationId = "";
-                    var destLocationName = "";
-                    var destLocationBehavior = "";
-                    var destProjectId ="";
-                    var destProjectName ="";
-                    var destProjectCode ="";
-                    var destProjectBehavior ="";
-                    var destUsageYearId ="";
-                    var destUsageYearName ="";
-                    var destUsageYearBehavior ="";
-                    var sourceOrganisationId = "";
-                    var sourceOrganisationName = "";
-                    var sourceOrganisationBehavior = "";
-                    var sourceOrganisationTypes = "";
-                    var sourceOrganisationSubTypes = "";
-                    var sourceLocationId = "";
-                    var sourceLocationName = "";
-                    var sourceLocationBehavior = "";
-                    var sourceUsageYearId = "";
-                    var sourceUsageYearName = "";
-                    var sourceUsageYearBehavior = "";
-                    var destObjects = [];
-                    var sourceObjects = [];
 
-                    destObjects = feat[i].destinationObjects;
-                    sourceObjects = feat[i].sourceObjects;
-                    
-                    //DESTINATION OBJECTS
-                    for (var v = 0, len2 = destObjects.length; v < len2; v++) {
-                        switch ( destObjects[v].type) {
-                            case "Plan":
-                            planId = destObjects[v].id;
-                            planName = destObjects[v].name;
-                            planBehavior = destObjects[v].behavior;
-                                break;
-                            case "Organization":
-                                destOrganisationId = destObjects[v].id;
-                                destOrganisationName = destObjects[v].name;
-                                destOrganisationBehavior = destObjects[v].behavior;
-                                destOrganisationType = destObjects[v].organizationTypes; //spec
-                                break;
-                            case "Cluster":
-                                destClusterId = destObjects[v].id;
-                                destClusterName = destObjects[v].name;
-                                destClusterBehavior = destObjects[v].behavior;
-                                break;
-                            case "GlobalCluster":
-                                destGlobalClusterId = destObjects[v].id;
-                                destGlobalClusterName = destObjects[v].name;
-                                destGlobalClusterBehavior = destObjects[v].behavior;
-                                break;
-                            case "Location":
-                                destLocationId = destObjects[v].id;
-                                destLocationName = destObjects[v].name;
-                                destLocationBehavior = destObjects[v].behavior;
-                                break;
-                            case "Project":
-                                destProjectId =destObjects[v].id;
-                                destProjectName =destObjects[v].name;
-                                destProjectCode =destObjects[v].code;
-                                destProjectBehavior =destObjects[v].behavior;
-                                break;
-                            case "UsageYear":
-                                destUsageYearId =destObjects[v].id;
-                                destUsageYearName =destObjects[v].name;
-                                destUsageYearBehavior =destObjects[v].behavior;
-                                break;
-                        }
+        $.getJSON("https://api.hpc.tools/v1/public/fts/flow?planid=653,652,637,640,661,654,638,643,642,644,548,537,587,532,547,535,626,530,546,536,528", function(resp) {
+            var feat = resp.data.flows,tableData = [];
+            
+    
+            
+            
+            // Iterate over the JSON object
+            for (var i = 0, len = feat.length; i < len; i++) {
+                var planId="";
+                var planName = "";
+                var planBehavior = "";
+                var destOrganisationId = "";
+                var destOrganisationName = "";
+                var destOrganisationBehavior = "";
+                var destOrganisationType = "";
+                var destClusterId = "";
+                var destClusterName = "";
+                var destClusterBehavior = "";
+                var destGlobalClusterId = "";
+                var destGlobalClusterName = "";
+                var destGlobalClusterBehavior = "";
+                var destLocationId = "";
+                var destLocationName = "";
+                var destLocationBehavior = "";
+                var destProjectId ="";
+                var destProjectName ="";
+                var destProjectCode ="";
+                var destProjectBehavior ="";
+                var destUsageYearId ="";
+                var destUsageYearName ="";
+                var destUsageYearBehavior ="";
+                var sourceOrganisationId = "";
+                var sourceOrganisationName = "";
+                var sourceOrganisationBehavior = "";
+                var sourceOrganisationTypes = "";
+                var sourceOrganisationSubTypes = "";
+                var sourceLocationId = "";
+                var sourceLocationName = "";
+                var sourceLocationBehavior = "";
+                var sourceUsageYearId = "";
+                var sourceUsageYearName = "";
+                var sourceUsageYearBehavior = "";
+                var destObjects = [];
+                var sourceObjects = [];
+
+                destObjects = feat[i].destinationObjects;
+                sourceObjects = feat[i].sourceObjects;
+                
+                //DESTINATION OBJECTS
+                for (var v = 0, len2 = destObjects.length; v < len2; v++) {
+                    switch ( destObjects[v].type) {
+                        case "Plan":
+                        planId = destObjects[v].id;
+                        planName = destObjects[v].name;
+                        planBehavior = destObjects[v].behavior;
+                            break;
+                        case "Organization":
+                            destOrganisationId = destObjects[v].id;
+                            destOrganisationName = destObjects[v].name;
+                            destOrganisationBehavior = destObjects[v].behavior;
+                            destOrganisationType = destObjects[v].organizationTypes; //spec
+                            break;
+                        case "Cluster":
+                            destClusterId = destObjects[v].id;
+                            destClusterName = destObjects[v].name;
+                            destClusterBehavior = destObjects[v].behavior;
+                            break;
+                        case "GlobalCluster":
+                            destGlobalClusterId = destObjects[v].id;
+                            destGlobalClusterName = destObjects[v].name;
+                            destGlobalClusterBehavior = destObjects[v].behavior;
+                            break;
+                        case "Location":
+                            destLocationId = destObjects[v].id;
+                            destLocationName = destObjects[v].name;
+                            destLocationBehavior = destObjects[v].behavior;
+                            break;
+                        case "Project":
+                            destProjectId =destObjects[v].id;
+                            destProjectName =destObjects[v].name;
+                            destProjectCode =destObjects[v].code;
+                            destProjectBehavior =destObjects[v].behavior;
+                            break;
+                        case "UsageYear":
+                            destUsageYearId =destObjects[v].id;
+                            destUsageYearName =destObjects[v].name;
+                            destUsageYearBehavior =destObjects[v].behavior;
+                            break;
                     }
-                    
-                    //SOURCE OBJECTS
-                    for (var v = 0, len3 = sourceObjects.length; v < len3; v++) {
-                        switch (sourceObjects[v].type) {
-                            case "Organization":
-                                sourceOrganisationId = sourceObjects[v].id;
-                                sourceOrganisationName = sourceObjects[v].name;
-                                sourceOrganisationBehavior = sourceObjects[v].behavior;
-                                sourceOrganisationTypes = sourceObjects[v].organizationTypes;
-                                sourceOrganisationSubTypes = sourceObjects[v].organizationSubTypes;
-                                break;
-                            case "Location":
-                                sourceLocationId = sourceObjects[v].id;
-                                sourceLocationName = sourceObjects[v].name;
-                                sourceLocationBehavior = sourceObjects[v].behavior;
-                                break;
-                            case "UsageYear":
-                                sourceUsageYearId =sourceObjects[v].id;
-                                sourceUsageYearName =sourceObjects[v].name;
-                                sourceUsageYearBehavior =sourceObjects[v].behavior;
-                                break;
-                        }
-                    }
-                    
-                    tableData.push({
-                        "id": feat[i].id,
-                        "description": feat[i].description,
-                        "status": feat[i].status,
-                        "amountUSD": feat[i].amountUSD,
-                        "originalAmount": feat[i].originalAmount,
-                        "originalCurrency": feat[i].originalCurrency,
-                        "exchangeRate": feat[i].exchangeRate,
-                        "budgetYear": feat[i].budgetYear,
-                        "flowType": feat[i].flowType,
-                        "contributionType": feat[i].contributionType,
-                        "boundary": feat[i].boundary,
-                        "onBoundary": feat[i].onBoundary,
-                        "refCode": feat[i].refCode,
-                        "planId": planId,
-                        "planName": planName,
-                        "planBehavior": planBehavior,
-                        "destOrganisationId": destOrganisationId,
-                        "destOrganisationName": destOrganisationName,
-                        "destOrganisationBehavior": destOrganisationBehavior,
-                        "destOrganisationType": destOrganisationType,
-                        "destClusterId": destClusterId,
-                        "destClusterName": destClusterName,
-                        "destClusterBehavior": destClusterBehavior,
-                        "destGlobalClusterId": destGlobalClusterId,
-                        "destGlobalClusterName": destGlobalClusterName,
-                        "destGlobalClusterBehavior": destGlobalClusterBehavior,
-                        "destLocationId": destLocationId,
-                        "destLocationName": destLocationName,
-                        "destLocationBehavior": destLocationBehavior,
-                        "destProjectId": destProjectId,
-                        "destProjectName": destProjectName,
-                        "destProjectCode": destProjectCode,
-                        "destProjectBehavior": destProjectBehavior,
-                        "destUsageYearId": destUsageYearId,
-                        "destUsageYearName": destUsageYearName,
-                        "destUsageYearBehavior": destUsageYearBehavior,
-                        "sourceOrganisationId": sourceOrganisationId,
-                        "sourceOrganisationName": sourceOrganisationName,
-                        "sourceOrganisationBehavior": sourceOrganisationBehavior,
-                        "sourceOrganisationTypes": sourceOrganisationTypes,
-                        "sourceOrganisationSubTypes": sourceOrganisationSubTypes,
-                        "sourceLocationId": sourceLocationId,
-                        "sourceLocationName": sourceLocationName,
-                        "sourceLocationBehavior": sourceLocationBehavior,
-                        "sourceUsageYearId": sourceUsageYearId,
-                        "sourceUsageYearName": sourceUsageYearName,
-                        "sourceUsageYearBehavior": sourceUsageYearBehavior
-                    });
                 }
+                
+                //SOURCE OBJECTS
+                for (var v = 0, len3 = sourceObjects.length; v < len3; v++) {
+                    switch (sourceObjects[v].type) {
+                        case "Organization":
+                            sourceOrganisationId = sourceObjects[v].id;
+                            sourceOrganisationName = sourceObjects[v].name;
+                            sourceOrganisationBehavior = sourceObjects[v].behavior;
+                            sourceOrganisationTypes = sourceObjects[v].organizationTypes;
+                            sourceOrganisationSubTypes = sourceObjects[v].organizationSubTypes;
+                            break;
+                        case "Location":
+                            sourceLocationId = sourceObjects[v].id;
+                            sourceLocationName = sourceObjects[v].name;
+                            sourceLocationBehavior = sourceObjects[v].behavior;
+                            break;
+                        case "UsageYear":
+                            sourceUsageYearId =sourceObjects[v].id;
+                            sourceUsageYearName =sourceObjects[v].name;
+                            sourceUsageYearBehavior =sourceObjects[v].behavior;
+                            break;
+                    }
+                }
+                
+                tableData.push({
+                    "id": feat[i].id,
+                    "description": feat[i].description,
+                    "status": feat[i].status,
+                    "amountUSD": feat[i].amountUSD,
+                    "originalAmount": feat[i].originalAmount,
+                    "originalCurrency": feat[i].originalCurrency,
+                    "exchangeRate": feat[i].exchangeRate,
+                    "budgetYear": feat[i].budgetYear,
+                    "flowType": feat[i].flowType,
+                    "contributionType": feat[i].contributionType,
+                    "boundary": feat[i].boundary,
+                    "onBoundary": feat[i].onBoundary,
+                    "refCode": feat[i].refCode,
+                    "planId": planId,
+                    "planName": planName,
+                    "planBehavior": planBehavior,
+                    "destOrganisationId": destOrganisationId,
+                    "destOrganisationName": destOrganisationName,
+                    "destOrganisationBehavior": destOrganisationBehavior,
+                    "destOrganisationType": destOrganisationType,
+                    "destClusterId": destClusterId,
+                    "destClusterName": destClusterName,
+                    "destClusterBehavior": destClusterBehavior,
+                    "destGlobalClusterId": destGlobalClusterId,
+                    "destGlobalClusterName": destGlobalClusterName,
+                    "destGlobalClusterBehavior": destGlobalClusterBehavior,
+                    "destLocationId": destLocationId,
+                    "destLocationName": destLocationName,
+                    "destLocationBehavior": destLocationBehavior,
+                    "destProjectId": destProjectId,
+                    "destProjectName": destProjectName,
+                    "destProjectCode": destProjectCode,
+                    "destProjectBehavior": destProjectBehavior,
+                    "destUsageYearId": destUsageYearId,
+                    "destUsageYearName": destUsageYearName,
+                    "destUsageYearBehavior": destUsageYearBehavior,
+                    "sourceOrganisationId": sourceOrganisationId,
+                    "sourceOrganisationName": sourceOrganisationName,
+                    "sourceOrganisationBehavior": sourceOrganisationBehavior,
+                    "sourceOrganisationTypes": sourceOrganisationTypes,
+                    "sourceOrganisationSubTypes": sourceOrganisationSubTypes,
+                    "sourceLocationId": sourceLocationId,
+                    "sourceLocationName": sourceLocationName,
+                    "sourceLocationBehavior": sourceLocationBehavior,
+                    "sourceUsageYearId": sourceUsageYearId,
+                    "sourceUsageYearName": sourceUsageYearName,
+                    "sourceUsageYearBehavior": sourceUsageYearBehavior
+                });
+            }
 
-                table.appendRows(tableData);
-                doneCallback();
-            });
-        }
-
-        
+            table.appendRows(tableData);
+            doneCallback();
+        });
     };
 
     tableau.registerConnector(myConnector);
