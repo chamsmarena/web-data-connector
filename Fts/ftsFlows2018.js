@@ -68,7 +68,7 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
 
-        var plans = [638];
+        var plans = [653,652];
         for (var r = 0, len4 = plans.length; r < len4; r++) {
             $.getJSON("https://api.hpc.tools/v1/public/fts/flow?planid="+plans[r], function(resp) {
                 var feat = resp.data.flows,tableData = [];
